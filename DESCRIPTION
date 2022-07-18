@@ -2,11 +2,18 @@ Package: betareg4flu
 Type: Package
 Title: What the Package Does (Title Case)
 Version: 0.1.0
-Author: Ariane Stark
+Authors@R: Ariane Stark
 Maintainer: The package maintainer <yourself@somewhere.net>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
 License: What license is it under?
+Imports:
+  tidyverse
+  readr
+  betareg
+  data.table
+  lubridate
+  here
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/starkari/betareg4flu
