@@ -24,7 +24,6 @@ Imports:
   betareg
   data.table
   lubridate
-  here
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/starkari/betareg4flu
