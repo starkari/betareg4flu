@@ -28,3 +28,4 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/starkari/betareg4flu
 BugReports: https://github.com/starkari/betareg4flu/issues
+RoxygenNote: 7.1.1
