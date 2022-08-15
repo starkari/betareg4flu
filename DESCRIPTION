@@ -2,13 +2,24 @@ Package: betareg4flu
 Type: Package
 Title: What the Package Does (Title Case)
 Version: 0.1.0
-Authors@R: Ariane Stark
-Maintainer: The package maintainer <yourself@somewhere.net>
+Authors@R: c(
+person(given = "Ariane",
+           family = "Stark",
+           email = "aestark@umass.edu"
+           role = c("cre","aut")))
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
 License: What license is it under?
 Imports:
-  tidyverse
+  dplyr (>= 0.8.4),
+  tibble (>= 2.1.3),   
+  tidyr (>= 1.0.2),
+  MMWRweek (>= 0.1.1),
+  lubridate (>= 1.7.4),
+  purrr (>= 0.3.3),
+  utils,
+  stringr,
+  yaml,
   readr
   betareg
   data.table
