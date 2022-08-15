@@ -20,9 +20,9 @@ Imports:
   utils,
   stringr,
   yaml,
-  readr
-  betareg
-  data.table
+  readr,
+  betareg,
+  data.table,
   lubridate
 Encoding: UTF-8
 LazyData: true
