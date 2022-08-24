@@ -22,10 +22,10 @@ Imports:
   yaml,
   readr,
   betareg,
-  data.table,
+  data.table (>= 1.14.3),
   lubridate
 Encoding: UTF-8
-LazyData: true
+LazyData: false
 URL: https://github.com/starkari/betareg4flu
 BugReports: https://github.com/starkari/betareg4flu/issues
 RoxygenNote: 7.1.1

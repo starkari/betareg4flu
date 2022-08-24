@@ -30,7 +30,7 @@ get_log_score <- function(value,county,threshold_data,pred_thresholds) {
   score <- NA
   threshold <- NA
 
-  truth_severity <- get_severity_categories(values = truth_value,
+  truth_severity <- get_severity_categories(values = value,
                                             county=county,
                                             threshold_data = threshold_data)
 
