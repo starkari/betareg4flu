@@ -12,6 +12,54 @@ logit_FUN <- function(x){
 }
 
 
+### ---------------------
+
+#' Get Log Score
+#'
+#' @param value the value you want the log score of (true value)
+#' @param county county the forecast was made
+#' @param threshold_data data frame of threshold cutoffs by county
+#' @param pred_thresholds the predicted threshold proportions array in low, mod, high, vhigh order
+#'
+#' @return
+#' @export
+#'
+#' @examples
+get_log_score <- function(value,county,threshold_data,pred_thresholds) {
+
+  score <- NA
+  threshold <- NA
+
+  truth_severity <- get_severity_categories(values = truth_value,
+                                            county=county,
+                                            threshold_data = threshold_data)
+
+  if (truth_severity$low_count != 0) {
+    score <- log(pred_thresholds[1])
+    threshold <- "low"
+  }
+
+  if (truth_severity$moderate_count != 0) {
+    score <- log(pred_thresholds[2])
+    threshold <- "mod"
+  }
+
+  if (truth_severity$high_count != 0) {
+    score <- log(pred_thresholds[3])
+    threshold <- "high"
+  }
+
+  if (truth_severity$very_high_count != 0) {
+    score <- log(pred_thresholds[4])
+    threshold <- "vhigh"
+  }
+
+
+  return(list(score=score, threshold=threshold))
+
+
+}
+
 
 
 #### ------------------------------------------------------ ###
@@ -21,7 +69,7 @@ logit_FUN <- function(x){
 # obs is percentage
 #' Title
 #'
-#' @param sim_object: a sample of a call to Beta_forecast_p 
+#' @param sim_object: a sample of a call to Beta_forecast_p
 #' @param obs: observed prediction target
 #' @param ph: prediction horizon
 #'
@@ -29,7 +77,7 @@ logit_FUN <- function(x){
 #' @export
 #'
 #' @examples
-#' 
+#'
 cal_log_score <- function(sim_object,
                           obs,
                           ph){
