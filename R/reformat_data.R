@@ -24,6 +24,7 @@
 #' - columns of the logit of the lagged values denoted "pk" for k=1,...,"lags".
 #' @export
 #'
+#' @importFrom data.table ":="
 #' @examples
 #' \dontrun{
 #' dat <- reformat_data(data = seasons_data_weekly_update,
