@@ -48,28 +48,28 @@ reformat_data <- function (data, county_name,
   data$new_ili <- data$ili_rate+1e-3
 
 
-  data[, week_number := max(Week), by = Season]
+  data[, week_number <- max(Week), by = Season]
 
   ## Season week column: week number within season
   data$season_week <- ifelse(data$Week>=30,data$Week-29,data$Week+(data$week_number-29))
 
-  data[, InPeriod := season_week/week_number, by = Year]
+  data[, InPeriod <- season_week/week_number, by = Year]
 
-  data[, sin_InPeriod1 := sin(2 * pi * InPeriod)]
-  data[, cos_InPeriod1 := cos(2 * pi * InPeriod)]
-  data[, sin_InPeriod2 := sin(4 * pi * InPeriod)]
-  data[, cos_InPeriod2 := cos(4 * pi * InPeriod)]
-  data[, sin_InPeriod3 := sin(6 * pi * InPeriod)]
-  data[, cos_InPeriod3 := cos(6 * pi * InPeriod)]
-  data[, cos_InPeriod4 := cos(8 * pi * InPeriod)]
-  data[, sin_InPeriod4 := sin(8 * pi * InPeriod)]
-  data[, cos_InPeriod5 := cos(10 * pi * InPeriod)]
-  data[, sin_InPeriod5 := cos(10 * pi * InPeriod)]
+  data[, sin_InPeriod1 <- sin(2 * pi * InPeriod)]
+  data[, cos_InPeriod1 <- cos(2 * pi * InPeriod)]
+  data[, sin_InPeriod2 <- sin(4 * pi * InPeriod)]
+  data[, cos_InPeriod2 <- cos(4 * pi * InPeriod)]
+  data[, sin_InPeriod3 <- sin(6 * pi * InPeriod)]
+  data[, cos_InPeriod3 <- cos(6 * pi * InPeriod)]
+  data[, cos_InPeriod4 <- cos(8 * pi * InPeriod)]
+  data[, sin_InPeriod4 <- sin(8 * pi * InPeriod)]
+  data[, cos_InPeriod5 <- cos(10 * pi * InPeriod)]
+  data[, sin_InPeriod5 <- cos(10 * pi * InPeriod)]
 
 
 
   for (i in 1 : lags){
-    data[, paste0("p", i) := logit_FUN(shift(new_ili,n = i, type = "lag"))]
+    data[, paste0("p", i) <- logit_FUN(shift(new_ili,n = i, type = "lag"))]
   }
 
   return (data)
