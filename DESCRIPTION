@@ -22,7 +22,7 @@ Imports:
   yaml,
   readr,
   betareg,
-  data.table (>= 1.14.3),
+  data.table (>= 1.14.2),
   lubridate
 Encoding: UTF-8
 LazyData: false
