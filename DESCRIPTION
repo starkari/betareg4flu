@@ -21,6 +21,7 @@ Imports:
   stringr,
   yaml,
   here,
+  magrittr,
   readr,
   betareg,
   data.table (>= 1.14.2),
