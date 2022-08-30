@@ -50,7 +50,7 @@ forecast_season_predictions <- function(data, county,
 
   # keep copy of original data to modify later
   data_copy <- data %>%
-    filter(Adjusted_County == parameter_data$county[i])
+    dplyr::filter(Adjusted_County == parameter_data$county[i])
 
   data <- reformat_data(data = data,
                         county_name = parameter_data$county[i],
@@ -67,7 +67,7 @@ forecast_season_predictions <- function(data, county,
 
 
   test_data <- data %>%
-    filter(train == FALSE)
+    dplyr::filter(train == FALSE)
 
   if (typeof(dates_to_forecast)=="charecter") {
     if (dates_to_forecast=="all") {

@@ -80,9 +80,9 @@ summarize_forecasts <- function(forecast_list, truth, county, threshold_data){
                                              "Season"])
 
     true_peak_remaining <- true_data %>%
-      filter(Season==current_season) %>%
-      filter(last_day_week > as.Date(forecast_date_i)) %>%
-      pull(ili_rate) %>%
+      dplyr::filter(Season==current_season) %>%
+      dplyr::filter(last_day_week > as.Date(forecast_date_i)) %>%
+      dplyr::pull(ili_rate) %>%
       max()
 
     max_per_simutation <- apply(data_i,1,max)
