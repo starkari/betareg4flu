@@ -7,6 +7,7 @@
 #' @param threshold_data data frame of threshold cutoffs by county
 #'
 #' @return
+#' @importFrom magrittr %>%
 #' @export
 #'
 #' @examples

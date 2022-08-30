@@ -20,6 +20,7 @@
 #' quantile_matrix: filled in quantile_matrix data frame from create_results_data_frames
 #' @export
 #'
+#' @importFrom magrittr %>%
 #' @examples
 #' \dontrun{
 #' forecast <- forecast_season_predictions_loops(
