@@ -111,7 +111,7 @@ forecast_season_predictions <- function(data, county,
   }
 
 
-  simulation_data <- compact(simulation_data)
+  simulation_data <- purrr::compact(simulation_data)
 
   run_time <- proc.time() - ptm
   BetaRegression <- list(simulation_data = simulation_data)
