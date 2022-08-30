@@ -25,6 +25,7 @@
 #' @export
 #'
 #' @importFrom data.table ":="
+#' @importFrom magrittr %>%
 #' @examples
 #' \dontrun{
 #' dat <- reformat_data(data = seasons_data_weekly_update,
@@ -39,7 +40,7 @@ reformat_data <- function (data, county_name,
                                lags){
 
   data <- data.table::data.table(data %>%
-                       filter(Adjusted_County==county_name))
+                       dplyr::filter(Adjusted_County==county_name))
 
 
   # this is now training on first 3 and testing on 2018-2019
