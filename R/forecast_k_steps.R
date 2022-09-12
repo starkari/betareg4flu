@@ -79,7 +79,8 @@ forecast_k_steps <- function(k, num_sims, test_data, raw_data, time_index,
 
   }
 
-  return(forecast_data)
+  return(list("forecast_dat"=forecast_data,
+              "Beta_regression_results"=Update_BetaReg))
 
 
 
