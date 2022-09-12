@@ -70,7 +70,7 @@ forecast_season_predictions <- function(data, county,
   test_data <- data %>%
     dplyr::filter(train == FALSE)
 
-  if (typeof(dates_to_forecast)=="charecter") {
+  if (typeof(dates_to_forecast)=="character") {
     if (dates_to_forecast=="all") {
       dates_to_forecast <- test_data %>%
         pull(last_day_week)
