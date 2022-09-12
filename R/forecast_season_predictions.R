@@ -75,6 +75,9 @@ forecast_season_predictions <- function(data, county,
       dates_to_forecast <- test_data %>%
         pull(last_day_week)
     }
+    else {
+      dates_to_forecast <- as.Date(dates_to_forecast)
+    }
   }
 
 
