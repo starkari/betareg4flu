@@ -88,7 +88,7 @@ forecast_season_predictions <- function(data, county,
     n_horizons <- max(get_prediction_horizons(prediction_time_ind,data))
 
     # only make predictions for dates want to forecast
-    if(test_data[time_index,last_day_week] %in% dates_to_forecast) {
+    if(as.Date(test_data[time_index,last_day_week]) %in% as.Date(dates_to_forecast)) {
       # only make predictions for dates in season_week 11 to 43 (calendar week 40 to 20)
       if (test_data[time_index,season_week] %in% c(11:43)) {
         forecast_data <- forecast_k_steps(k=n_horizons, num_sims, test_data, raw_data=data_copy,
