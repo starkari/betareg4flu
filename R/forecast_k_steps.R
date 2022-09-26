@@ -33,11 +33,25 @@ forecast_k_steps <- function(k, num_sims, test_data, raw_data, time_index,
   forecast_data <- as.data.frame(matrix(NA, ncol = k, nrow=num_sims))
   colnames(forecast_data) <- paste0("y_",time_index,"+",1:k)
 
+  # gets all the data that is assigned as TRAIN
+  data_fit_beta_1 <- reformat_data(data = raw_data,
+                                   county_name = county,
+                                   training_seasons, lags) %>%
+    dplyr::filter(train==TRUE)
+
+  # gets all the prior data and filters to be data to TEST on ie
+  # getting the new data in the test season
+  data_fit_beta_2 <- reformat_data(data = raw_data,
+                                   county_name = county,
+                                   training_seasons, lags)[
+                                     seq_len(max(0, prediction_time_ind-1)), ] %>%
+    dplyr::filter(train==FALSE)
+
+  # combines two sets to form data to fit model on
+  data_fit_beta <- rbind(data_fit_beta_1,data_fit_beta_2)
+
   Update_BetaReg <- fit_beta_model(S_mean, S_Precision, lags,
-                                   data=reformat_data(data = raw_data,
-                                                      county_name = county,
-                                                      training_seasons, lags)[
-                                                        seq_len(max(0, prediction_time_ind-1)), ])
+                                   data=data_fit_beta)
 
 
   for (sim in 1:num_sims) {
