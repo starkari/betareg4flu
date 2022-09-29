@@ -30,7 +30,7 @@ forecast_k_steps <- function(k, num_sims, test_data, raw_data, time_index,
 
   colnames(current_data) <- paste0("y_",1:time_index)
 
-  forecast_data <- as.data.frame(matrix(NA, ncol = k, nrow=num_sims))
+  forecast_data <- matrix(NA, ncol = k, nrow=num_sims)
   colnames(forecast_data) <- paste0("y_",time_index,"+",1:k)
 
   # gets all the data that is assigned as TRAIN

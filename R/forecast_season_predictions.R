@@ -100,7 +100,7 @@ forecast_season_predictions <- function(data, county,
                                           covar)
 
         simulation_data_time_index <- list("Date"=as.character(data$last_day_week[prediction_time_ind]),
-                                           "Simulation"=as.data.frame(forecast_data$forecast_dat),
+                                           "Simulation"=forecast_data$forecast_dat,
                                            "Beta_regression_results"=forecast_data$Beta_regression_results)
         simulation_data[[time_index]]<- simulation_data_time_index
 
