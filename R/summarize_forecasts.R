@@ -1,7 +1,7 @@
 
 #' Summarize Forecasts
 #'
-#' @param forecast_list output from `forecast_season_predictions`
+#' @param forecast_list output from `forecast_season_predictions`$simulation_data
 #' @param truth data frame containing truth needs columns for county, date, season, and ili_rate
 #' @param county string of the county the forecast is made
 #' @param threshold_data data frame of threshold cutoffs by county
@@ -16,7 +16,7 @@ summarize_forecasts <- function(forecast_list, truth, county, threshold_data){
   total_rows <- 0
 
   for (i in 1:length(forecast_list)){
-    data_i <- forecast_list$Simulation
+    data_i <- forecast_list[[i]]$Simulation
     total_rows <- total_rows+ncol(data_i)+1
   }
 
@@ -31,9 +31,9 @@ summarize_forecasts <- function(forecast_list, truth, county, threshold_data){
 
   results_row_ind <- 1
 
-  for (i in 1:nrow(forecast_list$Simulation)){
-    data_i <- forecast_list$Simulation
-    forecast_date_i <- forecast_list$Date
+  for (i in 1:length(forecast_list)){
+    data_i <- forecast_list[[i]]$Simulation
+    forecast_date_i <- forecast_list[[i]]$Date
     num_sims <- nrow(data_i)
 
 
@@ -118,6 +118,9 @@ summarize_forecasts <- function(forecast_list, truth, county, threshold_data){
     results_row_ind <- results_row_ind+1
 
   }
+
+
+
 
   return(data_set_results)
 
