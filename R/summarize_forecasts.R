@@ -15,8 +15,8 @@ summarize_forecasts <- function(forecast_list, truth, county, threshold_data){
 
   total_rows <- 0
 
-  for (i in 1:length(forecast_list$simulation_data)){
-    data_i <- forecast_list$simulation_data[[i]]$Simulation
+  for (i in 1:length(forecast_list)){
+    data_i <- forecast_list[[i]]$Simulation
     total_rows <- total_rows+ncol(data_i)+1
   }
 
