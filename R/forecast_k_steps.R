@@ -70,17 +70,6 @@ forecast_k_steps <- function(k, num_sims, test_data, raw_data, time_index,
       new_data <- data_this_sim_this_horizon[
         seq_len(max(0, prediction_time_ind+prediction_horizon-1)), ]
 
-      # Update_BetaReg <- fit_beta_model(S_mean, S_Precision, lags, data=new_data)
-
-      # pr <- forecast_1_step(object = Update_BetaReg,
-      #                       p = lags,
-      #                       start_value =
-      #                         # gets the p lagged values before the time being predicted
-      #                         new_data[(prediction_time_ind-lags+1):(prediction_time_ind),
-      #                                  new_ili],
-      #                       # gets the sine and cosine terms
-      #                       coefs_subset = data_this_sim_this_horizon[(prediction_time_ind+1),
-      #                                                                 ..covar])
 
       # gets the p lagged values before the time being predicted
       p_lagged_names <- paste0("p",rep(1:lags))
