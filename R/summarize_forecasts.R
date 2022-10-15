@@ -21,7 +21,7 @@ summarize_forecasts <- function(forecast_list, truth, county, threshold_data){
   }
 
   true_data <- truth %>%
-    filter(Adjusted_County==county)
+    dplyr::filter(Adjusted_County==county)
 
   data_set_results <- as.data.frame(matrix(NA, ncol=12,
                                            nrow = total_rows))
