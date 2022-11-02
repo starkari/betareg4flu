@@ -57,8 +57,8 @@ summarize_forecasts_distribution <- function(forecast_list, truth, county, thres
                       dplyr::starts_with("sin_"),
                       dplyr::starts_with("cos_"),
                       dplyr::starts_with("p"))) %>%
-      filter(last_day_week > forecast_date_i) %>%
-      mutate("(Intercept)"=1)
+      dplyr::filter(last_day_week > forecast_date_i) %>%
+      dplyr::mutate("(Intercept)"=1)
 
 
     for (j in 1:ncol(data_i)){
