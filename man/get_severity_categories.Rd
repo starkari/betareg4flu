@@ -13,9 +13,6 @@ get_severity_categories(values, county, threshold_data)
 
 \item{threshold_data}{}
 }
-\value{
-
-}
 \description{
 Title
 }

@@ -15,9 +15,6 @@ get_log_score(value, county, threshold_data, pred_thresholds)
 
 \item{pred_thresholds}{the predicted threshold proportions array in low, mod, high, vhigh order}
 }
-\value{
-
-}
 \description{
 Get Log Score
 }

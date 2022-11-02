@@ -19,6 +19,3 @@ the log score
 \description{
 Title
 }
-\examples{
-
-}

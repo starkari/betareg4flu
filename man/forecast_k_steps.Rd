@@ -43,9 +43,6 @@ to run through `reformat_data`}
 
 \item{covar:}{the sine and cosine covariates}
 }
-\value{
-
-}
 \description{
 Title
 }
