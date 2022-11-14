@@ -94,7 +94,7 @@ forecast_season_predictions <- function(data, county,
     if(test_data[time_index,last_day_week] %in% dates_to_forecast) {
       # only make predictions for dates in season_week 11 to 43 (calendar week 40 to 20)
       if (test_data[time_index,season_week] %in% c(11:43)) {
-        forecast_data <- forecast_k_steps_new(k=n_horizons, num_sims, test_data, raw_data=data_copy,
+        forecast_data <- forecast_k_steps(k=n_horizons, num_sims, test_data, raw_data=data_copy,
                                           time_index, prediction_time_ind,
                                           S_mean, S_Precision, lags, county, training_seasons,
                                           covar)
