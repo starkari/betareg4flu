@@ -82,8 +82,8 @@ forecast_k_steps <- function(k, num_sims, test_data, raw_data, time_index,
                             p = lags,
                             start_value = p_lagged_prior,
                             # gets the sine and cosine terms
-                            coefs_subset = data_this_sim_this_horizon[(prediction_time_ind+prediction_horizon),
-                                                                      ),
+                            coefs_subset =
+                              data_this_sim_this_horizon[(prediction_time_ind+prediction_horizon),
                                                                       ..covar])
 
       #updates the data we are using to forecast with the new result
