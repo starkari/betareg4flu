@@ -19,7 +19,7 @@
 #' @export
 #'
 #' @examples
-forecast_k_steps <- function(k, num_sims, test_data, raw_data, time_index,
+forecast_k_steps_new <- function(k, num_sims, test_data, raw_data, time_index,
                              prediction_time_ind,S_mean, S_Precision, lags,
                              county, training_seasons, covar) {
 
