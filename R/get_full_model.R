@@ -24,11 +24,12 @@ get_full_model <- function(S_mean, S_Precision, lags,
     mean_covar <- paste0(c(rep("sin_InPeriod",S_mean),rep("cos_InPeriod",S_mean)),1 : S_mean)
     precision_covar <- paste0(c(rep("sin_InPeriod",S_Precision), rep("cos_InPeriod",S_Precision)), 1 : S_Precision)
     if (lags == 0) {
-      mean_AR <- ""
+      mean_AR <- "new_ili ~ "
+      mean_model <- paste0(mean_AR,paste(mean_covar,collapse = " + "))
     } else {
       mean_AR <- paste("new_ili ~", paste(paste0("p", 1 : lags), collapse = " + "))
+      mean_model <- paste(mean_AR, paste(mean_covar,collapse = " + "), sep = " + ")
     }
-    mean_model <- paste(mean_AR, paste(mean_covar,collapse = " + "), sep = " + ")
     precision_model <- paste(precision_covar, collapse = " + ")
     full_model <- paste(mean_model, "|", precision_model)
   }
